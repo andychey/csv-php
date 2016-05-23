@@ -1,0 +1,30 @@
+{
+  "name": "andychey/csv",
+  "description": "processor for csv file",
+  "version": "1.0.0",
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andy Chey",
+      "email": "andychey@outlook.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Andychey\\Csv\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Andychey\\Csv\\": "test"
+    }
+  },
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8"
+  }
+}
