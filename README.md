@@ -1,3 +1,3 @@
-# excel-php
+# excel-csv
 
-simplify phpexcel
+a simple processor for csv file
