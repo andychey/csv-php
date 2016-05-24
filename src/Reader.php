@@ -6,53 +6,20 @@ namespace Andychey\Csv;
 class Reader
 {
     /**
-     * 文件名
-     *
-     * @var
-     */
-    protected $filename;
-
-    /**
-     * 文件句柄
-     *
-     * @var resource
-     */
-    protected $fh;
-
-    /**
-     * Reader constructor
-     * @param $filename
-     */
-    public function __construct($filename)
-    {
-        $this->checkFile($filename);
-        $this->filename = $filename;
-        $this->fh = fopen($filename, 'r');
-    }
-
-    /**
-     * 转为数组
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return $this->getCsvData($this->fh);
-    }
-
-    /**
      * 直接将csv文件加载到数组中
      *
      * @param $filename
+     * @param $columns
+     * 
      * @return array
      */
-    public static function loadToArray($filename)
+    public static function loadToArray($filename, array $columns = array())
     {
         self::checkFile($filename);
 
         $fh = fopen($filename, 'r');
 
-        return self::getCsvData($fh);
+        return self::getCsvData($fh, $columns);
     }
 
     /**
@@ -62,7 +29,7 @@ class Reader
      * @param array $columns
      * @return array
      */
-    protected static function getCsvData($fh, $columns = array())
+    protected static function getCsvData($fh, array $columns = array())
     {
         $data = array();
         while (($buffer = fgets($fh)) !== false) {
