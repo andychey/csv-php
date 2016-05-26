@@ -2,6 +2,8 @@
 
 namespace Andychey\Csv;
 
+use InvalidArgumentException;
+
 
 class Reader
 {
@@ -68,7 +70,7 @@ class Reader
     protected static function checkFile($filename)
     {
         if (! file_exists($filename)) {
-            throw new \InvalidArgumentException("File 「{$filename}」 doesn't exist");
+            throw new InvalidArgumentException("File 「{$filename}」 doesn't exist");
         }
     }
 }
