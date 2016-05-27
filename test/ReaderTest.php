@@ -7,9 +7,9 @@ use PHPUnit_Framework_TestCase;
 
 class ReaderTest extends PHPUnit_Framework_TestCase
 {
-	public static function testSave()
+	public function testReader()
 	{
-		$data = array(
+		$expect = array(
 			array('姓名', '年龄'),
 			array('搞毛', 20),
 			array('哈哈', 30),
@@ -17,7 +17,7 @@ class ReaderTest extends PHPUnit_Framework_TestCase
 			array('嘻嘻', 12345678901),
 		);
 
-		$write = new Writer($data);
-		$write->save(__DIR__ . '/data/out.csv');
+		$data = Reader::loadToArray(__DIR__ . '/data/src.csv');
+		$this->assertEquals($expect, $data);
 	}
 }

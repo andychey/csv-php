@@ -34,8 +34,16 @@ class Reader
     protected static function getCsvData($fh, array $columns = array())
     {
         $data = array();
+        $line = 0;
         while (($buffer = fgets($fh)) !== false) {
-            $data[] = self::filterColumns(explode(',', $buffer), $columns);
+            if (! $line) {
+                $buffer = str_replace("\xEf\xBB\xBF", '', $buffer);
+            }
+            $data[] = self::filterColumns(
+                array_map(function ($item) {return trim($item, "\r\n\t `");}, array_filter(explode(',', $buffer))),
+                $columns
+            );
+            $line ++;
         }
         return $data;
     }
