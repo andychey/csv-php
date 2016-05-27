@@ -1,7 +1,6 @@
 {
   "name": "andychey/csv",
   "description": "processor for csv file",
-  "version": "1.0.0",
   "type": "library",
   "minimum-stability": "stable",
   "license": "MIT",
