@@ -1,5 +1,4 @@
 <?php
-
 namespace Andychey\Csv;
 
 
@@ -29,7 +28,7 @@ class Writer
 
     /**
      * 下载csv
-     * 
+     *
      * @param $filename
      */
     public function download($filename)
@@ -75,7 +74,7 @@ class Writer
 
     /**
      * 处理数据
-     * 
+     *
      * @param $fh
      */
     public function process($fh)

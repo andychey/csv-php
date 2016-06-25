@@ -1,5 +1,4 @@
 <?php
-
 namespace Andychey\Csv;
 
 use InvalidArgumentException;
@@ -12,7 +11,7 @@ class Reader
      *
      * @param $filename
      * @param $columns
-     * 
+     *
      * @return array
      */
     public static function loadToArray($filename, array $columns = array())
